@@ -18,7 +18,6 @@ class CommentTest extends TestCase
      */
     public function testCommentCreatedCorrectly()
     {
-
         $data = [
             'user_name' => 'test',
             'email' => 'test@gmail.com',
@@ -37,7 +36,6 @@ class CommentTest extends TestCase
                 'created_at' => true,
                 'updated_at' => true,
             ]);
-
     }
 
     public function testCommentValidation()
@@ -47,18 +45,18 @@ class CommentTest extends TestCase
             'email' => '',
             'text' => '',
         ];
+
         $keys = [
             'email',
             'text',
             'user_name'
         ];
+
         $response = $this->json('POST', '/api/comment', $data);
 
         $response
             ->assertStatus(422)
             ->assertJsonValidationErrors($keys);
-
-
     }
 
     public function testCommentValidationEmail()
@@ -68,20 +66,20 @@ class CommentTest extends TestCase
             'email' => 'test@test',
             'text' => 'test',
         ];
+
         $keys = [
             'email'
         ];
+
         $response = $this->json('POST', '/api/comment', $data);
 
         $response
             ->assertStatus(422)
             ->assertJsonValidationErrors($keys);
-
     }
 
     public function testCommentGetAll()
     {
-        //$data = factory(\App\Comment::class, 3)->create();
         factory(\App\Comment::class, 2)->create()->each(function ($u) {
             $u->children()->save(factory(\App\Comment::class)->make());
         });

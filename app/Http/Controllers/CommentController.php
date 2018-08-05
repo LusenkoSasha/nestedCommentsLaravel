@@ -17,11 +17,9 @@ class CommentController extends Controller
      */
     public function index(Comment $comment)
     {
-
-
         $data = $comment->with('children')->where('parent_id', null)->get();
+
         return CommentResource::collection($data);
-        //return response()->json($data);
     }
 
     /**
@@ -42,10 +40,9 @@ class CommentController extends Controller
      */
     public function store(StoreComment $request)
     {
-
         $data = Comment::create($request->all());
-        return new CommentResource($data);
 
+        return new CommentResource($data);
     }
 
 
@@ -58,14 +55,12 @@ class CommentController extends Controller
      */
     public function update(StoreComment $request, $id)
     {
-
         $data = Comment::find($id);
         $data->user_name = $request->user_name;
         $data->email = $request->email;
         $data->text = $request->text;
 
         $data->save();
-
 
         return new CommentResource($data);
     }
