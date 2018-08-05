@@ -47,7 +47,7 @@
                     </div>
                     <div v-else>
                         <p><strong>{{ node.user_name }} {{node.created_at | formatDate}} <small v-if="node.created_at != node.updated_at" class="has-text-grey-light"> обновлен {{node.updated_at | formatDate}}</small></strong>
-                            <span class="button is-light is-small" @click="edit(node.id)"><i
+                            <span class="button is-light is-small" @click="edit(node.id, node.updated_at)"><i
                                     class="material-icons md-18">edit</i></span>
                             <span class="button is-light is-small " @click="remove(node)"><i
                                     class="material-icons md-18"> clear</i></span>
@@ -102,6 +102,7 @@
             update: function (item) {
                 var self = this;
                 axios.put('/api/comment/'+item.id, item).then(function (response) {
+                  item.updated_at = response.data.updated_at;
                     self.$root.$children[0].edit_id = '';
                     var ms = "Комментарий успешно обновлен!";
                     self.$noty.success(ms)

@@ -64534,10 +64534,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         axios.post('/api/comment', self.value).then(function (response) {
           self.$root.$children[0].reply_id = '';
           if (self.parent.children) {
-            alert("est");
             self.parent.children.push(response.data);
           } else {
-            alert("no");
             Vue.set(self.parent, 'children', []);
             self.parent.children.push(response.data);
           }
@@ -64883,6 +64881,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         update: function update(item) {
             var self = this;
             axios.put('/api/comment/' + item.id, item).then(function (response) {
+                item.updated_at = response.data.updated_at;
                 self.$root.$children[0].edit_id = '';
                 var ms = "Комментарий успешно обновлен!";
                 self.$noty.success(ms);
@@ -65096,7 +65095,7 @@ var render = function() {
                           staticClass: "button is-light is-small",
                           on: {
                             click: function($event) {
-                              _vm.edit(node.id)
+                              _vm.edit(node.id, node.updated_at)
                             }
                           }
                         },
