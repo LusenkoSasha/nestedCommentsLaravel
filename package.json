@@ -18,5 +18,11 @@
         "laravel-mix": "^2.0",
         "lodash": "^4.17.4",
         "vue": "^2.5.7"
+    },
+    "dependencies": {
+        "animate.css": "^3.7.0",
+        "bulma": "^0.7.1",
+        "moment": "^2.22.2",
+        "vuejs-noty": "^0.1.3"
     }
 }

@@ -1,0 +1,42 @@
+.media > .article-padding {
+    padding-left: 30px;
+    z-index: 1000;
+
+}
+
+.media + .media {
+    border-top: none;
+}
+
+.media .media {
+    border-top: none;
+}
+
+.v-m {
+    vertical-align: middle;
+}
+
+.material-icons {
+
+}
+.media .form-comment{
+    padding-left: 30px;
+}
+.reply {
+    color: #a4b0be;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.reply:hover {
+    color: #70a1ff;
+
+}
+
+.material-icons.md-18 {
+    font-size: 18px;
+}
+
+.form-comment {
+    width: 60%;
+}
