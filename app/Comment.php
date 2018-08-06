@@ -19,12 +19,4 @@ class Comment extends Model
         return $this->hasMany('App\Comment', 'parent_id', 'id')->with('children');
     }
 
-    public function allChildrenAccounts()
-    {
-        return $this->children()->with('allChildrenAccounts');
-    }
-    public function scopeChildless($q)
-    {
-        $q->has('children', '=', null);
-    }
 }
