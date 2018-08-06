@@ -22,6 +22,8 @@
 * php artisan key:generate 
 * php artisan migrate
 * npm run dev
+* Для запуска теста "./vendor/bin/phpunit"
+
 Возможно будет ошибка при npm run dev - тогда npm rebuild node-sass и еще раз npm run dev
 
 ![alt text](https://c.radikal.ru/c06/1808/d8/3c0d11a0d4ca.png)
