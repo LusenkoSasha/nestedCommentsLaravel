@@ -20,7 +20,7 @@
 * composer install
 * npm install
 * php artisan key:generate 
-* php artisan migration
+* php artisan migrate
 * npm run dev
 Возможно будет ошибка при npm run dev - тогда npm rebuild node-sass и еще раз npm run dev
 
